@@ -1,0 +1,46 @@
+<!--
+  Generated template for the SearchPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>search</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+	<section>
+		<h2> search for your Star Wars Character</h2>
+		<input [(ngModel)]="name" type="text" placeholder="Character Name" (keyup)="findCharacter(name)">	
+	</section>
+
+	<section *ngIf="searchSubject">
+		<h2 *ngIf="searchSubject | async !== null"> Search Result</h2>
+		<ul>
+			<li *ngFor="let character of searchSubject | async">
+			<h3>{{character.name}}</h3>
+            <dl>
+                <dt>Birth Year</dt>
+                <dd>{{character.birth_year}}</dd>
+                <dt>Eye Color</dt>
+                <dd>{{character.eye_color}}</dd>
+                <dt>Hair Color</dt>
+                <dd>{{character.hair_color}}</dd>
+                <dt>Gender</dt>
+                <dd>{{character.gender}}</dd>
+                <dt>Height</dt>
+                <dd>{{character.height}}</dd>
+                <dt>Mass</dt>
+                <dd>{{character.mass}}</dd>
+                <dt>Skin Color</dt>
+                <dd>{{character.skin_color}}</dd>
+            </dl>
+			</li>
+		</ul>
+	</section>
+</ion-content>
